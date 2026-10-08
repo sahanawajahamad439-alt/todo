@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A sleek, modern, and intuitive To-Do List web application to organize your daily tasks.">
+  <title>TaskFlow — Elegant To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="app-card">
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="header-content">
+        <span class="badge" id="current-date">Today</span>
+        <h1 class="app-title">My Tasks</h1>
+        <p class="app-subtitle">Stay focused, organized, and productive.</p>
+      </div>
+      <div class="progress-container">
+        <div class="progress-info">
+          <span class="progress-label">Completion</span>
+          <span class="progress-percentage" id="progress-text">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Task Input Form -->
+    <form class="input-container" id="todo-form">
+      <div class="input-wrapper">
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="task-input" 
+          placeholder="What do you need to accomplish today?" 
+          autocomplete="off"
+          aria-label="New task description"
+        >
+      </div>
+      <button type="submit" id="add-btn" class="add-button" aria-label="Add Task">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>Add</span>
+      </button>
+    </form>
+
+    <!-- Filter and Controls -->
+    <div class="controls-bar">
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+        <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+      </div>
+      <button id="clear-completed-btn" class="clear-btn" title="Clear completed tasks">Clear Completed</button>
+    </div>
+
+    <!-- Task List -->
+    <ul class="task-list" id="task-list" aria-live="polite">
+      <!-- Tasks dynamically rendered here -->
+    </ul>
+
+    <!-- Empty State Message -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon-wrapper">
+        <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+        </svg>
+      </div>
+      <h3 class="empty-title">All clear!</h3>
+      <p class="empty-subtitle">Add a task above to kickstart your day.</p>
+    </div>
+
+    <!-- Footer Stats -->
+    <footer class="app-footer">
+      <span id="task-count">0 tasks left</span>
+      <span class="tip-text">Press <kbd>Enter</kbd> to add quickly</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
